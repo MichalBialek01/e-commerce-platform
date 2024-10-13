@@ -1,0 +1,16 @@
+User
+Address
+Category
+PersonalizedDiscountCoupon - nie
+GlobalDiscountCoupon - nie
+Customer
+Worker
+Seller
+Cart
+Order
+Product
+Image
+CartProducts
+OrderProducts
+Invoice
+SellerInvoice

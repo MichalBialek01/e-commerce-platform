@@ -48,7 +48,7 @@ bin/
 *.classpath
 *.project
 *.settings/
-bin/
+
 
 ### NetBeans ###
 /nbproject/private/

@@ -2,16 +2,12 @@ package pl.bialek.ecommerceplatform.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.bialek.ecommerceplatform.infrastructure.database.entity.actors.CustomerEntity;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,6 +19,6 @@ public class CartEntity {
     private Long cartId;
     private BigDecimal totalPrice = BigDecimal.ZERO;
 
-
-
+    @OneToMany(mappedBy = "cart")
+    private List<CartProductEntity> cartProducts;
 }

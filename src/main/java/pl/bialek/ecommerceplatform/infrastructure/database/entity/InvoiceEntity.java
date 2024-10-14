@@ -2,8 +2,6 @@ package pl.bialek.ecommerceplatform.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.bialek.ecommerceplatform.infrastructure.database.entity.actors.CustomerEntity;
-import pl.bialek.ecommerceplatform.infrastructure.database.entity.actors.SellerEntity;
 
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -28,7 +26,20 @@ public class InvoiceEntity {
     @Column(name = "invoice_date")
     private OffsetDateTime dateTime;
 
+    @OneToOne
+    @JoinColumn(name = "warehouse_worker_id")
+    private WarehouseWorkerEntity worker;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private CustomerEntity customer;
+
+    @OneToOne
+    @JoinColumn(name = "order_id")
+    private OrderEntity order;
+
+    @OneToMany(mappedBy = "invoice")
+    private List<InvoiceSellerEntity> invoiceSellers;
 
 
 }

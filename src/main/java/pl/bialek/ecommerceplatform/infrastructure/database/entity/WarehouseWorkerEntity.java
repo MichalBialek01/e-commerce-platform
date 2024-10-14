@@ -1,14 +1,9 @@
-package pl.bialek.ecommerceplatform.infrastructure.database.entity.actors;
+package pl.bialek.ecommerceplatform.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.NaturalId;
-import org.hibernate.annotations.UuidGenerator;
-import org.hibernate.validator.constraints.UUID;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 @Getter
 @Setter
@@ -17,7 +12,7 @@ import java.time.ZonedDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "warehouse_worker")
-public class WarehouseWorker {
+public class WarehouseWorkerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "warehouse_worker_id")
@@ -26,6 +21,16 @@ public class WarehouseWorker {
     private Integer monthlyWorkingTimeHours;
     private LocalDate employmentDate;
     private Integer age;
+
+    @OneToOne(mappedBy = "worker")
+    private InvoiceEntity invoice;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+
+
 }
 
 

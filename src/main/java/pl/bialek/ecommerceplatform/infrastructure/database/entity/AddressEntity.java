@@ -1,4 +1,4 @@
-package pl.bialek.ecommerceplatform.infrastructure.database.entity.actors;
+package pl.bialek.ecommerceplatform.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,6 +31,5 @@ public class AddressEntity {
 
     @Column(name = "building_number")
     private Integer buildingNumber;
-
 
 }

@@ -1,4 +1,4 @@
-package pl.bialek.ecommerceplatform.infrastructure.database.entity.actors;
+package pl.bialek.ecommerceplatform.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,5 +28,6 @@ public class UserEntity {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-
+    @OneToOne(mappedBy = "user")
+    private WarehouseWorkerEntity worker;
 }

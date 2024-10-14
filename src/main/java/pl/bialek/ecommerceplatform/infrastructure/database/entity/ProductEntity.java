@@ -2,7 +2,6 @@ package pl.bialek.ecommerceplatform.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.bialek.ecommerceplatform.infrastructure.database.entity.actors.SellerEntity;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -25,5 +24,22 @@ public class ProductEntity {
     private BigDecimal price;
     private Integer stockQuantity;
 
+    @ManyToOne
+    @JoinColumn(name = "seller_id")  // Klucz obcy do Seller
+    private SellerEntity seller;
+
+    @OneToMany(mappedBy = "product")
+    private List<ImageEntity> images;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
+
+    @OneToMany(mappedBy = "product")
+    private List<CartProductEntity> cartProducts;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderProductEntity> orderProducts;
 
 }

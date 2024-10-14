@@ -23,6 +23,12 @@ public class CartProductEntity {
     private BigDecimal productPrice;
     private BigDecimal totalPrice;
 
+    @ManyToOne
+    @JoinColumn(name = "cart_id", nullable = false)
+    private CartEntity cart;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private ProductEntity product;
 
 }

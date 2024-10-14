@@ -22,6 +22,12 @@ public class OrderProductEntity {
     private int quantity;
     private BigDecimal price;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private OrderEntity order;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private ProductEntity product;
 
 }

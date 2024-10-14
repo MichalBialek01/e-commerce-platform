@@ -1,8 +1,7 @@
-package pl.bialek.ecommerceplatform.infrastructure.database.entity.actors;
+package pl.bialek.ecommerceplatform.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import pl.bialek.ecommerceplatform.infrastructure.database.entity.ProductEntity;
 
 import java.util.List;
 
@@ -23,4 +22,15 @@ public class SellerEntity {
 
     private String companyName;
     private String NIP;
+
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private AddressEntity address;
+
+
+    @OneToMany(mappedBy = "seller")
+    private List<ProductEntity> products;
+
+    @OneToMany(mappedBy = "seller")
+    private List<InvoiceSellerEntity> invoiceSellers;
 }
